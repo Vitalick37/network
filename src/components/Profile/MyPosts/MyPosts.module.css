@@ -1,0 +1,9 @@
+
+.posts {
+  color:black;
+  width: 314px;
+  height: 331px;
+  border-radius: 20px;
+  box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+  padding: 10px;
+}
