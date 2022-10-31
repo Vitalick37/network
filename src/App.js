@@ -8,15 +8,16 @@ import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import { Route, Routes } from "react-router-dom";
 
-function App() {
+
+function App(props) {
   return (
       <div className="app-wrapper container">
         <Header />
         <Navbar />
         <div className="app-wrapper-content">
           <Routes>
-            <Route path="/dialogs" element={<Dialogs />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/dialogs" element={<Dialogs dialogsData={props.dialogData} messagesData={props.messageData} />} />
+            <Route path="/profile" element={<Profile dataPosts={props.postData} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/setting" element={<Setting />} />
