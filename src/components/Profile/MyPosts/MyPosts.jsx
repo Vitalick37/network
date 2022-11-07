@@ -5,14 +5,33 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
+
+  let postElement = props.dataPost.map(({id, post, likesCount}) => <Post message = {post} like = {likesCount} key={id}/>);
+  let newPostElement = React.createRef();
+
+  let addPostButton = () => {
+    props.addPost()
+  };
+
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text)
+  };
+
   return (
+    
     <div className={styles.posts}>
+
       <p className={styles.posts__title}>My Posts</p>
+
+      <textarea ref={newPostElement} onChange={onPostChange} name="text" cols="20" rows="5" value={props.dataNewPost} />
+
+      <button onClick={addPostButton}>add post</button>
+
       <div className={styles.posts__content}>
-        {props.dataPost.map(({id, post, likesCount}) => 
-          <Post message = {post} like = {likesCount} key={id}/>
-        )}
+        {postElement}
       </div>
+
     </div>
   );
 };

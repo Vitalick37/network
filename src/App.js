@@ -13,15 +13,30 @@ function App(props) {
   return (
       <div className="app-wrapper container">
         <Header />
+
         <Navbar dataFriends={props.stateData.messagesPage}/>
+
         <div className="app-wrapper-content">
+
           <Routes>
-            <Route path="/dialogs" element={<Dialogs stateDialogs={props.stateData.messagesPage} />} />
-            <Route path="/profile" element={<Profile statePosts={props.stateData.profilePage} />} />
+            
+            <Route path="/dialogs" element={<Dialogs 
+            stateDialogs={props.stateData.messagesPage} 
+            addMessage={props.addMessage}
+            updateNewMessageText={props.updateNewMessageText}
+            />} />
+
+            <Route path="/profile" element={<Profile 
+              statePosts={props.stateData.profilePage}
+              addPost={props.addPost} 
+              updateNewPostText={props.updateNewPostText} 
+              />} />
+
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/setting" element={<Setting />} />
           </Routes>
+
         </div>
       </div>
   );
