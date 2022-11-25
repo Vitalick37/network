@@ -1,21 +1,26 @@
 import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from './Post/Post';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/profileReducer';
+
 
 
 
 const MyPosts = (props) => {
 
-  let postElement = props.dataPost.map(({id, post, likesCount}) => <Post message = {post} like = {likesCount} key={id}/>);
+  let postElement = props.posts.map(({id, post, likesCount}) => <Post message = {post} like = {likesCount} key={id}/>);
   let newPostElement = React.createRef();
 
   let addPostButton = () => {
-    props.dispatch({ type: 'ADD-POST' })
+    // props.dispatch(addPostActionCreator())
+    props.addPost();
   };
 
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.dispatch({ type: 'UODATE-NEW-POST-TEXT', newText: text })
+    props.updateNewPostText(text);
+    // let action = updateNewPostTextActionCreator(text);
+    // props.dispatch(action);
   };
 
   return (
