@@ -1,0 +1,21 @@
+
+.users_container,
+.users_left {
+    display: flex;
+    gap: 20px;
+}
+.users_container {
+    margin-bottom: 20px;
+}
+.users_left {
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.users_img {
+    width: 60px;
+}
+.users_img img {
+    width: 100%;
+}

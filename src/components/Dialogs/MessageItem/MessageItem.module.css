@@ -1,0 +1,23 @@
+.message {
+    background: #ede8e8;
+    color: #636262;
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 55px;
+    text-align: center;
+    width: 227px;
+    height: 54px;
+    border-radius: 28px;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+.message__wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+
+}
+.message__wrapper:nth-child(2n) {
+    justify-content: flex-end;
+    
+}
