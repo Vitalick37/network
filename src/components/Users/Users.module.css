@@ -1,6 +1,7 @@
 
 .users_container,
-.users_left {
+.users_left,
+.pages {
     display: flex;
     gap: 20px;
 }
@@ -18,4 +19,13 @@
 }
 .users_img img {
     width: 100%;
+}
+.pages {
+    list-style-type: none;
+}
+.page {
+    cursor: pointer;
+}
+.pageActive {
+    font-weight: 600;
 }
