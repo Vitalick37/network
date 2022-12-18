@@ -20,13 +20,8 @@ const Users = (props) => {
         {pages.map((p) => {
             return (
             <li
-                className={cn(
-                classes.page,
-                props.currentPage === p && classes.pageActive
-                )}
-                onClick={(e) => {
-                props.onPageChanged(p);
-                }}
+                className={cn(classes.page, props.currentPage === p && classes.pageActive)}
+                onClick={(e) => {props.onPageChanged(p);}}
             >
                 {p}
             </li>
