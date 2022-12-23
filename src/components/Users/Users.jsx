@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Users.module.css";
 import cn from "classnames";
 import userNoName from "../../img/userNoName.jpg";
+import { NavLink } from "react-router-dom";
 
 const Users = (props) => {
 
@@ -33,10 +34,12 @@ const Users = (props) => {
         <div className={classes.users_container} key={e.id}>
             <div className={classes.users_right}>
             <div className={classes.users_img}>
+                <NavLink to={'/profile' + '/' + e.id}>
                 <img
                 src={e.photos.small != null ? e.photos.small : userNoName}
                 alt="photo"
                 />
+                </NavLink>
             </div>
             <div>
                 {e.followed ? (

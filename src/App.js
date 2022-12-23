@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
-import Profile from "./components/Profile/Profile";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 import Dialogs from "./components/Dialogs/Dialogs";
 import UsersContainer from "./components/Users/UsersContainer";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
@@ -17,7 +17,6 @@ function App(props) {
         <Header />
 
         <Navbar 
-          // dataFriends={props.stateData.sidebar}
         />
 
         <div className="app-wrapper-content">
@@ -25,16 +24,15 @@ function App(props) {
           <Routes>
             
             <Route path="/dialogs" element={<DialogsContainer 
-            // stateDialogs={props.stateData.messagesPage} 
-            // dispatch={props.dispatch}
-            // store={props.store}
             />} />
 
-            <Route path="/profile" element={<Profile 
-              // statePosts={props.stateData.profilePage}
-              // dispatch={props.dispatch} 
-              // store={props.store}
+            {/* <Route path="/profile/:userId" element={<ProfileContainer 
               />} />
+            <Route path="/profile/" element={<ProfileContainer 
+              />} /> */}
+            <Route path="/profile" element={<ProfileContainer />}>
+              <Route path=":userId" element={<ProfileContainer />} />
+              </Route>
             <Route path="/users" element={<UsersContainer 
 
               />} />
