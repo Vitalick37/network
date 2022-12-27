@@ -1,5 +1,5 @@
 import React from "react";
-import { followAC, unFollowAC, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching } from "../../redux/usersReduser";
+import { followAC, unFollowAC, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingInProgress } from "../../redux/usersReduser";
 import { connect } from "react-redux";
 import axios from "axios";
 import Users from "./Users";
@@ -46,6 +46,9 @@ class UsersApiComponent extends React.Component {
                 onPageChanged={this.onPageChanged}
                 follow={this.props.follow}
                 unFollow={this.props.unFollow}
+                toggleFollowingInProgress={this.props.toggleFollowingInProgress}
+                followingInProgress={this.props.followingInProgress}
+    
         />
         </>
       );
@@ -60,6 +63,7 @@ let mapStateToProps = (state) => {
         count: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching,
+        followingInProgress: state.usersPage.followingInProgress,
     }
 }
 
@@ -95,5 +99,6 @@ export default connect(mapStateToProps,
   setCurrentPage,
   setTotalUsersCount,
   toggleIsFetching,
+  toggleFollowingInProgress,
   }
   )(UsersApiComponent);
