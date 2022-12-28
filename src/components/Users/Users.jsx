@@ -4,7 +4,8 @@ import cn from "classnames";
 import userNoName from "../../img/userNoName.jpg";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
-import { getFollow, getUnFollow } from "../../api/api";
+import { usersAPI } from "../../api/api";
+import { follow, unFollow } from "../../redux/usersReduser";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.count / props.pageSize);
@@ -21,16 +22,9 @@ const Users = (props) => {
         {pages.map((p) => {
           return (
             <li
-              className={cn(
-                classes.page,
-                props.currentPage === p && classes.pageActive
-              )}
-              onClick={(e) => {
-                props.onPageChanged(p);
-              }}
-            >
-              {p}
-            </li>
+              className={cn(classes.page, props.currentPage === p && classes.pageActive)}
+              onClick={(e) => {props.onPageChanged(p);}}
+            >{p}</li>
           );
         })}
       </ul>
@@ -51,15 +45,16 @@ const Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some(id => id === e.id)}
                   onClick={() => {
-                    props.toggleFollowingInProgress(true, e.id);
-                    getUnFollow(e.id)
-                      .then((data) => {
-                        // debugger;
-                        if (data.resultCode === 0) {
-                          props.unFollow(e.id);
-                        }
-                        props.toggleFollowingInProgress(false, e.id);
-                      });
+                    props.unFollow(e.id)
+                    // props.toggleFollowingInProgress(true, e.id);
+                    // usersAPI.getUnFollow(e.id)
+                    //   .then((data) => {
+                    //     // debugger;
+                    //     if (data.resultCode === 0) {
+                    //       props.unFollow(e.id);
+                    //     }
+                    //     props.toggleFollowingInProgress(false, e.id);
+                    //   });
                   }}
 
                 >Unfollow</button>
@@ -67,15 +62,16 @@ const Users = (props) => {
                 <button
                   disabled={props.followingInProgress.some(id => id === e.id)}
                   onClick={() => {
-                    props.toggleFollowingInProgress(true, e.id);
-                    getFollow(e.id)
-                      .then((data) => {
-                        // debugger;
-                        if (data.resultCode === 0) {
-                          props.follow(e.id);
-                        }
-                        props.toggleFollowingInProgress(false, e.id);
-                      });
+                    props.follow(e.id)
+                    // props.toggleFollowingInProgress(true, e.id);
+                    // usersAPI.getFollow(e.id)
+                    //   .then((data) => {
+                    //     // debugger;
+                    //     if (data.resultCode === 0) {
+                    //       props.follow(e.id);
+                    //     }
+                    //     props.toggleFollowingInProgress(false, e.id);
+                    //   });
                   }}
 
                 >Follow</button>
