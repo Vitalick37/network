@@ -9,6 +9,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 import { Route, Routes } from "react-router-dom";
+import Login from "./components/Login/Login";
 
 
 function App(props) {
@@ -23,23 +24,21 @@ function App(props) {
 
           <Routes>
             
-            <Route path="/dialogs" element={<DialogsContainer 
-            />} />
+            <Route path="/dialogs" element={<DialogsContainer />} />
 
-            {/* <Route path="/profile/:userId" element={<ProfileContainer 
-              />} />
-            <Route path="/profile/" element={<ProfileContainer 
-              />} /> */}
+
             <Route path="/profile" element={<ProfileContainer />}>
               <Route path=":userId" element={<ProfileContainer />} />
-              </Route>
-            <Route path="/users" element={<UsersContainer 
+            </Route>
 
-              />} />
+            <Route path="/users" element={<UsersContainer />} />
+
+            <Route path="/login" element={<Login />} />
 
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/setting" element={<Setting />} />
+
           </Routes>
 
         </div>

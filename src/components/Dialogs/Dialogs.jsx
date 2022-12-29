@@ -3,6 +3,7 @@ import styles from "./Dialogs.module.css";
 import DialogsItem from "./DialogsItem/DialogsItem";
 import MessageItem from "./MessageItem/MessageItem";
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/dialogsReducer";
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -22,6 +23,10 @@ const Dialogs = (props) => {
     // props.dispatch(updateNewMessageTextActionCreator(text));
     props.updateNewMessageText(text);
   }
+
+  if(props.isAuth == false) {
+    return <Navigate to={'/login'} />
+  };
 
   return (
     <div className={styles.dialog}>

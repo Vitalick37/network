@@ -2,10 +2,14 @@ import React from "react";
 import styles from "./Profile.module.css";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import { Navigate } from "react-router-dom";
 
 
 
 const Profile = (props) => {
+
+  // if (props.isAuth == false) return <Navigate to="/login"/>
+
   return (
     <div className={styles.profile}>
       <div className={styles.content}>
