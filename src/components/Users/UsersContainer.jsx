@@ -11,6 +11,8 @@ import { connect } from "react-redux";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { usersAPI } from "../../api/api";
+import { compose } from "redux";
+import { withAithRedirect } from "../../hoc/withAuthRedirect";
 
 
 class UsersApiComponent extends React.Component {
@@ -102,16 +104,26 @@ let mapStateToProps = (state) => {
 //     }
 // }
 
-export default connect(mapStateToProps, 
-  // mapDispatchToProps
-  {
-  follow: follow,
-  unFollow: unFollow,
-  // setUsers,
-  setCurrentPage,
-  // setTotalUsersCount,
-  // toggleIsFetching,
-  toggleFollowingInProgress,
-  getUsers: getUsersThunkCreator,
-  }
-  )(UsersApiComponent);
+// export default connect(mapStateToProps, 
+//   // mapDispatchToProps
+//   {
+//   follow: follow,
+//   unFollow: unFollow,
+//   // setUsers,
+//   setCurrentPage,
+//   // setTotalUsersCount,
+//   // toggleIsFetching,
+//   toggleFollowingInProgress,
+//   getUsers: getUsersThunkCreator,
+//   }
+  // )(UsersApiComponent);
+
+  export default compose(withAithRedirect, connect(mapStateToProps, 
+    {
+    follow: follow,
+    unFollow: unFollow,
+    setCurrentPage,
+    toggleFollowingInProgress,
+    getUsers: getUsersThunkCreator,
+    }
+    ))(UsersApiComponent);

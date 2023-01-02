@@ -24,9 +24,9 @@ const Dialogs = (props) => {
     props.updateNewMessageText(text);
   }
 
-  if(props.isAuth == false) {
-    return <Navigate to={'/login'} />
-  };
+  // if(props.isAuth == false) {
+  //   return <Navigate to={'/login'} />
+  // };
 
   return (
     <div className={styles.dialog}>
