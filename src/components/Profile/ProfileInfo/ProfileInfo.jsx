@@ -1,5 +1,6 @@
 import styles from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
 const ProfileInfo = (props) => {
 
@@ -9,7 +10,8 @@ const ProfileInfo = (props) => {
 
         return (
         <div className={styles.content__ability}>
-            <img src={props.profile.photos.small} alt="photo" />
+            {/* <img src={props.profile.photos.small} alt="photo" /> */}
+            <ProfileStatus status={"hello my friends"}/>
             <p>What’s your plan?</p>
             <p>Looks like a shady day</p>
             <p>36°</p>

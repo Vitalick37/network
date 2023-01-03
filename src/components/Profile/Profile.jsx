@@ -14,12 +14,7 @@ const Profile = (props) => {
     <div className={styles.profile}>
       <div className={styles.content}>
         <ProfileInfo profile={props.profile} />
-        <MyPostsContainer 
-        // dataPost={props.statePosts.postData} 
-        // dataNewPost={props.statePosts.newPostText} 
-        // dispatch={props.dispatch}
-        // store={props.store}
-        />
+        <MyPostsContainer />
       </div>
     </div>
   );
