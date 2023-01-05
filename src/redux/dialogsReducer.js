@@ -38,7 +38,7 @@ let initalState = {
         message: "i`m fine",
         },
     ],
-    newMessageText: "",
+    // newMessageText: "",
     };
 
 
@@ -50,22 +50,22 @@ const dialogsReducer = (state = initalState, action) => {
         
             let newMessage = {
                 id: 4,
-                message: state.newMessageText,
+                message: action.newMessageBody,
             };
 
             return {
                 ...state,
                 messagesData: [...state.messagesData, newMessage],
-                newMessageText: '',
+                // newMessageText: '',
             };
 
         
-        case UPDATE_NEW_MESSAGE_TEXT:
+        // case UPDATE_NEW_MESSAGE_TEXT:
 
-            return {
-                ...state,
-                newMessageText: action.newMessage,
-            };
+        //     return {
+        //         ...state,
+        //         newMessageText: action.newMessage,
+        //     };
         
 
         default: 
@@ -87,17 +87,18 @@ const dialogsReducer = (state = initalState, action) => {
     // return state;
 }
 
-export const addMessageActionCreator = () => {
+export const addMessageActionCreator = (newMessageBody) => {
     return {
         type: ADD_MESSAGE,
+        newMessageBody,
     };
     };
 
-export const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_MESSAGE_TEXT,
-        newMessage: text,
-    };
-    };
+// export const updateNewMessageTextActionCreator = (text) => {
+//     return {
+//         type: UPDATE_NEW_MESSAGE_TEXT,
+//         newMessage: text,
+//     };
+//     };
 
 export default dialogsReducer;
