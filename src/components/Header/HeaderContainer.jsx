@@ -11,20 +11,7 @@ class HeaderContainer extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
 
-        this.props.getAuthUserData();
-        // usersAPI.getAuth()
-        // .then((data) => { 
-        //     // debugger;
-        //     if( data.resultCode === 0) {
-
-        //         let {id, login, email} = data.data;
-        //         this.props.setUserData(id, login, email);
-
-        //     }
-        // })
-    }
 
     render () {
         return (
@@ -40,4 +27,4 @@ let mapStateToProps = (state) => {
     })
 }
 
-export default connect (mapStateToProps, {getAuthUserData, logout})(HeaderContainer);
+export default connect (mapStateToProps, {logout})(HeaderContainer);

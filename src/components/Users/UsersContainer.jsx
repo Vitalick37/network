@@ -118,7 +118,9 @@ let mapStateToProps = (state) => {
 //   }
   // )(UsersApiComponent);
 
-  export default compose(withAithRedirect, connect(mapStateToProps, 
+  export default compose(
+    // withAithRedirect, 
+    connect(mapStateToProps, 
     {
     follow: follow,
     unFollow: unFollow,

@@ -32,7 +32,8 @@ const authReducer = (state = initalState, action) => {
 export const setUserData = (id, login, email, isAuth) => ({type: SET_USER_DATA, data: {id, login, email, isAuth}});
 
 export const getAuthUserData = () => (dispatch) => {
-    authAPI.getAuth()
+
+    return authAPI.getAuth()
     .then((data) => { 
         // debugger;
         if( data.resultCode === 0) {

@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
 
         return (
         <div className={styles.content__ability}>
-            {/* <img src={props.profile.photos.small} alt="photo" /> */}
+            <img src={props.profile.photos.small} alt="photo" />
             <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
             <p>What’s your plan?</p>
             <p>Looks like a shady day</p>
