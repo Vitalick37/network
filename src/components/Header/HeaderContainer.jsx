@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import Header from "./Header";
 import { setUserData, getAuthUserData, logout } from "../../redux/authReducer";
 import Preloader from "../common/Preloader/Preloader";

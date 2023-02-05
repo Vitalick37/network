@@ -6,19 +6,23 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { usersAPI } from "../../api/api";
 import { follow, unFollow } from "../../redux/usersReduser";
+import Paginator from "../common/Paginator/Paginator";
+
 
 const Users = (props) => {
-  let pagesCount = Math.ceil(props.count / props.pageSize);
 
-  let pages = [];
+  // let pagesCount = Math.ceil(props.count / props.pageSize);
 
-  for (let i = 1; i <= pagesCount; i++) {
-    pages.push(i);
-  }
+  // let pages = [];
+
+  // for (let i = 1; i <= pagesCount; i++) {
+  //   pages.push(i);
+  // }
 
   return (
     <div className={classes.users}>
-      <ul className={classes.pages}>
+      <Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged} count={props.count} pageSize={props.pageSize}/>
+      {/* <ul className={classes.pages}>
         {pages.map((p) => {
           return (
             <li
@@ -27,7 +31,7 @@ const Users = (props) => {
             >{p}</li>
           );
         })}
-      </ul>
+      </ul> */}
 
       {props.users.map((e) => (
         <div className={classes.users_container} key={e.id}>
