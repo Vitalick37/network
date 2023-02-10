@@ -29,3 +29,7 @@
 .pageActive {
     font-weight: 600;
 }
+
+.paginator {
+    display: flex;
+}
