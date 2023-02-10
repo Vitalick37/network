@@ -1,11 +1,7 @@
 import "./App.css";
-import React from "react";
+import React, { Suspense }  from "react";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
-import ProfileContainer from "./components/Profile/ProfileContainer";
-import Dialogs from "./components/Dialogs/Dialogs";
-import UsersContainer from "./components/Users/UsersContainer";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
@@ -15,6 +11,13 @@ import { connect } from "react-redux";
 import { getAuthUserData } from "./redux/authReducer";
 import { initializeApp } from "./redux/appReduser";
 import Preloader from "./components/common/Preloader/Preloader";
+import Dialogs from "./components/Dialogs/Dialogs";
+import UsersContainer from "./components/Users/UsersContainer";
+
+// import ProfileContainer from "./components/Profile/ProfileContainer";
+// import DialogsContainer from "./components/Dialogs/DialogsContainer";
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
+const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer"));
 
 
 class App extends React.Component {
@@ -38,15 +41,14 @@ class App extends React.Component {
   
           <div className="app-wrapper-content">
   
+            <Suspense fallback={<div><Preloader /></div>}>
             <Routes>
-              
               <Route path="/dialogs" element={<DialogsContainer />} />
   
   
               <Route path="/profile" element={<ProfileContainer />}>
                 <Route path=":userId" element={<ProfileContainer />} />
               </Route>
-  
               <Route path="/users" element={<UsersContainer />} />
   
               <Route path="/login" element={<Login />} />
@@ -56,6 +58,7 @@ class App extends React.Component {
               <Route path="/setting" element={<Setting />} />
   
             </Routes>
+            </Suspense>
   
           </div>
         </div>
