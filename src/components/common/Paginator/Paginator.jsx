@@ -23,7 +23,6 @@ const Paginator = (props) => {
   let [portionNumber, setPortionNumbet] = useState(1);
   let leftPortionNumber = (portionNumber - 1) * portionSize + 1;
   let rightPortionNumber = portionNumber * portionSize;
-  console.log(portionNumber);
 
   return (
   <div className={classes.paginator}>
