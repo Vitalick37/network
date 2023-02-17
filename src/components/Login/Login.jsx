@@ -6,13 +6,16 @@ import { required } from '../../utils/vatidators/validators';
 import { connect } from 'react-redux';
 import { login } from '../../redux/authReducer';
 import { Navigate } from 'react-router-dom';
+import { createField } from '../common/FormsControls/FormsControls';
 
 const LoginForm = ({handleSubmit, error}) => {
 
     return (
 
             <form onSubmit={handleSubmit} className={classes.form}>
-                <Field placeholder={'Email'} name={'email'} component={Input} validate={[required]} />
+                {/* <Field placeholder={'Email'} name={'email'} component={Input} validate={[required]} /> */}
+                {createField('Email', 'email', Input, [required])}
+                
                 <Field placeholder={'Password'} name={'password'} component={Input} validate={[required]} type={'password'} />
                 <Field type={'checkbox'} name={'rememberMe'} component={Input} /> remember me
                 {error && <div  className={classes.form_summury_error}>{error}</div>}
